@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodotto - Neos Sub</title>
+    <meta name="description" content="Dettagli prodotto Neos Sub">
+    <link rel="stylesheet" href="neos-sub-styles.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+
+<!-- ===== TOP UTILITY BAR ===== -->
+<div class="utility-bar">
+    <div class="utility-inner">
+        <div id="google_translate_element"></div>
+        <div class="utility-actions">
+            <a href="/carrello.asp" class="util-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+                <span>Carrello</span>
+            </a>
+            <a href="/personale.asp" class="util-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                <span>Login</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header" id="mainHeader">
+    <div class="header-inner">
+        <a href="Neos Sub - Shopping subacquea e Articoli per la pesca in apnea.html" class="logo-link">
+            <img src="img_home/logo_neos.png" height="64" alt="Neos Sub - Arbalete e Accessori Subacquei">
+        </a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <!-- ===== NAV PRINCIPALE ===== -->
+    <nav class="main-nav" aria-label="Menu principale">
+        <ul class="nav-list" id="mainNavList">
+            <li><a href="Neos Sub - Shopping subacquea e Articoli per la pesca in apnea.html">Home</a></li>
+            <li><a href="/pagina.asp?pg=1">Chi Siamo</a></li>
+            <li><a href="/pagina.asp?pg=3">Come Comprare</a></li>
+            <li><a href="/pagina.asp?pg=4">Contatti</a></li>
+            <li><a href="/pagina.asp?pg=5">Foto Clienti</a></li>
+            <li><a href="/pagina.asp?pg=9">Modulo Misure</a></li>
+            <li><a href="/pagina.asp?pg=10">Listino</a></li>
+            <li><a href="/pagina.asp?pg=11">Gallery</a></li>
+            <li><a href="/pagina.asp?pg=12">Condizioni Vendita</a></li>
+            <li><a href="/pagina.asp?pg=14">Eventi</a></li>
+            <li><a href="/pagina.asp?pg=15">Links Utili</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== LAYOUT PRINCIPALE ===== -->
+<div class="page-wrapper">
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content product-page">
+
+        <div class="product-detail-container">
+            <div class="product-gallery">
+                <img id="product-image" src="" alt="" class="product-main-image">
+            </div>
+
+            <div class="product-info">
+                <h1 id="product-title" class="product-title"></h1>
+                <p id="product-description" class="product-description"></p>
+
+                <div class="product-actions">
+                    <button class="btn-primary" onclick="alert('Per acquistare questo prodotto, visita il sito originale neossub.it')">Acquista Ora</button>
+                    <a href="Neos Sub - Shopping subacquea e Articoli per la pesca in apnea.html" class="btn-secondary">Torna alla Home</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</div>
+
+<script>
+// Product data - in a real implementation, this would come from a database or API
+const products = {
+    930: {
+        title: "Ogiva Articolata",
+        description: "Ogiva articolata per fucili subacquei. Design ergonomico e prestazioni eccellenti.",
+        image: "public/catalogo/SANY1906.jpg"
+    },
+    7: {
+        title: "Boa Siluro con Tasca",
+        description: "Boa siluro con tasca porta attrezzi, ideale per la pesca in apnea.",
+        image: "public/catalogo/boa%20tasca.jpg"
+    },
+    538: {
+        title: "Muta Stagna Senza Cerniera",
+        description: "Muta stagna per ovviare ai fastidi e costi delle cerniere. Comoda e affidabile.",
+        image: "public/catalogo/orizzontale.jpg"
+    },
+    989: {
+        title: "Scarpette da Scoglio Junior",
+        description: "Aquawalk Junior by Mares, adatta fondali accidentati. Perfetta per i giovani sub.",
+        image: "public/catalogo/scarpette-mare-junior-mares.jpg"
+    },
+    131: {
+        title: "Termogiacca",
+        description: "Chiedere disponibilità di colore e taglia. Mantenimento del calore ottimale.",
+        image: "public/catalogo/termogiacca.jpg"
+    },
+    540: {
+        title: "Bermuda Nero Standard 3,5 mm",
+        description: "Sopramuta foderato esterno e spaccato interno da 3,5 mm. Resistente e confortevole.",
+        image: "public/catalogo/BERMUDA%20A%20TAGLIA.jpg"
+    },
+    978: {
+        title: "Pinne Anfibie",
+        description: "Pinne per camminare in sicurezza prima e dopo l'immersione. Versatile e pratica.",
+        image: "public/catalogo/images%201_1.jpg"
+    },
+    622: {
+        title: "Staffa Roll Completa",
+        description: "Prodotto italiano, reversibile destra/sinistra e ribaltabile. Alta qualità Made in Italy.",
+        image: "public/catalogo/SANY0049.jpg"
+    },
+    542: {
+        title: "Testata Sottovuoto Alleggerita 11",
+        description: "Made in Italy, con guarnizione polivalente. Leggera e performante.",
+        image: "public/catalogo/SANY2399.jpg"
+    },
+    6: {
+        title: "Plancetta",
+        description: "Concepita per fungere da mezzo nautico di appoggio. Stabile e affidabile.",
+        image: "public/catalogo/plancetta.jpg"
+    }
+};
+
+// Get product ID from URL
+function getProductId() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('id');
+}
+
+// Load product data
+function loadProduct() {
+    const productId = getProductId();
+    const product = products[productId];
+
+    if (product) {
+        document.getElementById('product-title').textContent = product.title;
+        document.getElementById('product-description').textContent = product.description;
+        document.getElementById('product-image').src = product.image;
+        document.getElementById('product-image').alt = product.title;
+        document.title = product.title + ' - Neos Sub';
+    } else {
+        document.getElementById('product-title').textContent = 'Prodotto non trovato';
+        document.getElementById('product-description').textContent = 'Il prodotto richiesto non è disponibile.';
+        document.getElementById('product-image').src = 'img_home/logo_neos.png';
+        document.getElementById('product-image').alt = 'Neos Sub Logo';
+    }
+}
+
+// Initialize when page loads
+$(document).ready(function() {
+    loadProduct();
+});
+</script>
+
+<script src="neos-sub.js"></script>
+
+</body>
+</html>

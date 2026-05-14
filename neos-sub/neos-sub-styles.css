@@ -881,3 +881,125 @@ input[type="submit"]:active, button:active, .btn:active {
     .product-info { padding: 8px; }
     .product-name { font-size: 0.76em; }
 }
+
+/* ============================================================
+   PRODUCT DETAIL PAGE
+   ============================================================ */
+
+.product-page {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.product-detail-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.product-gallery {
+    background: var(--bg-2);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.product-main-image {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: var(--radius);
+}
+
+.product-info {
+    background: var(--bg-2);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+}
+
+.product-title {
+    font-size: 2.2em;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.product-description {
+    font-size: 1.1em;
+    color: var(--text-2);
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.product-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: none;
+    font-size: 1em;
+    min-width: 120px;
+}
+
+.btn-primary {
+    background: var(--orange);
+    color: #000;
+}
+
+.btn-primary:hover {
+    background: var(--orange-h);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-secondary {
+    background: var(--bg-3);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--bg-4);
+    border-color: var(--border-h);
+}
+
+/* Mobile responsive for product page */
+@media (max-width: 768px) {
+    .product-detail-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .product-page {
+        padding: 20px 15px;
+    }
+
+    .product-info {
+        padding: 20px;
+    }
+
+    .product-title {
+        font-size: 1.8em;
+    }
+
+    .product-actions {
+        flex-direction: column;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+    }
+}
