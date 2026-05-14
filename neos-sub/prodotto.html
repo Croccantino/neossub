@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neos Sub - Dettaglio Prodotto</title>
-    <meta name="description" content="Pagina prodotto Neos Sub">
+    <title>Prodotto - Neos Sub</title>
+    <meta name="description" content="Dettagli prodotto Neos Sub">
     <link rel="stylesheet" href="neos-sub-styles.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="neos-sub.js" defer></script>
 </head>
 <body>
 
+<!-- ===== TOP UTILITY BAR ===== -->
 <div class="utility-bar">
     <div class="utility-inner">
         <div id="google_translate_element"></div>
@@ -27,209 +27,147 @@
     </div>
 </div>
 
+<!-- ===== HEADER ===== -->
 <header class="main-header" id="mainHeader">
     <div class="header-inner">
-        <a href="/index.asp" class="logo-link">
+        <a href="Neos Sub - Shopping subacquea e Articoli per la pesca in apnea.html" class="logo-link">
             <img src="img_home/logo_neos.png" height="64" alt="Neos Sub - Arbalete e Accessori Subacquei">
         </a>
         <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu">
             <span></span><span></span><span></span>
         </button>
     </div>
+
+    <!-- ===== NAV PRINCIPALE ===== -->
     <nav class="main-nav" aria-label="Menu principale">
         <ul class="nav-list" id="mainNavList">
-            <li><a href="/index.asp">Home</a></li>
+            <li><a href="Neos Sub - Shopping subacquea e Articoli per la pesca in apnea.html">Home</a></li>
             <li><a href="/pagina.asp?pg=1">Chi Siamo</a></li>
             <li><a href="/pagina.asp?pg=3">Come Comprare</a></li>
             <li><a href="/pagina.asp?pg=4">Contatti</a></li>
+            <li><a href="/pagina.asp?pg=5">Foto Clienti</a></li>
+            <li><a href="/pagina.asp?pg=9">Modulo Misure</a></li>
             <li><a href="/pagina.asp?pg=10">Listino</a></li>
+            <li><a href="/pagina.asp?pg=11">Gallery</a></li>
+            <li><a href="/pagina.asp?pg=12">Condizioni Vendita</a></li>
+            <li><a href="/pagina.asp?pg=14">Eventi</a></li>
+            <li><a href="/pagina.asp?pg=15">Links Utili</a></li>
         </ul>
     </nav>
 </header>
 
+<!-- ===== LAYOUT PRINCIPALE ===== -->
 <div class="page-wrapper">
-    <aside class="sidebar">
-        <div class="catalog-section">
-            <h2 class="tit_catalogo">Catalogo Neos</h2>
-            <form action="catalogo.asp" method="post" class="search-form">
-                <input type="text" placeholder="Ricerca prodotto" name="cercap" id="cercap">
-                <input type="submit" value="Cerca">
-                <input type="hidden" name="act" value="33">
-            </form>
-            <nav class="catalog-nav" aria-label="Categorie prodotto">
-                <ul id="catalogList" class="catalog-list">
-                    <li class="catalog-item"><a href="/catalogo.asp?id=80&amp;reparto=SALDI">SALDI</a></li>
-                    <li class="catalog-item"><a href="/catalogo.asp?id=3&amp;reparto=Fucili+Arbalete">Fucili Arbalete</a></li>
-                    <li class="catalog-item"><a href="/catalogo.asp?id=13&amp;reparto=Fucili+pneumatici">Fucili pneumatici</a></li>
-                    <li class="catalog-item"><a href="/catalogo.asp?id=6&amp;reparto=Accessori+in+Neoprene">Accessori in Neoprene</a></li>
-                    <li class="catalog-item"><a href="/catalogo.asp?id=11&amp;reparto=Coltelli">Coltelli</a></li>
-                </ul>
-            </nav>
-        </div>
-    </aside>
 
-    <main class="main-content">
-        <section class="product-page">
-            <div class="product-detail-container">
-                <div class="product-gallery">
-                    <img id="productImage" class="product-main-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="Immagine prodotto">
-                </div>
-                <div class="product-info">
-                    <h1 id="productTitle" class="product-title">Prodotto</h1>
-                    <p id="productDescription" class="product-description"></p>
-                    <p id="productPrice" class="product-description"></p>
-                    <div id="productExtra" class="product-description"></div>
-                    <div class="product-actions">
-                        <a id="backToCatalog" href="/index.asp" class="btn-secondary">Torna al catalogo</a>
-                        <a href="/carrello.asp" class="btn-primary">Vai al carrello</a>
-                    </div>
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content product-page">
+
+        <div class="product-detail-container">
+            <div class="product-gallery">
+                <img id="product-image" src="" alt="" class="product-main-image">
+            </div>
+
+            <div class="product-info">
+                <h1 id="product-title" class="product-title"></h1>
+                <p id="product-description" class="product-description"></p>
+
+                <div class="product-actions">
+                    <button class="btn-primary" onclick="alert('Per acquistare questo prodotto, visita il sito originale neossub.it')">Acquista Ora</button>
+                    <a href="Neos Sub - Shopping subacquea e Articoli per la pesca in apnea.html" class="btn-secondary">Torna alla Home</a>
                 </div>
             </div>
-            <div id="productError" class="product-error" style="display:none; margin-top: 30px;">
-                <h2>Prodotto non disponibile</h2>
-                <p>Seleziona un prodotto dalla vetrina o verifica l'URL.</p>
-            </div>
-        </section>
+        </div>
+
     </main>
 </div>
 
 <script>
-function getQueryParam(name) {
-    var params = new URLSearchParams(window.location.search);
-    return params.get(name);
-}
-
-var products = {
-    "930": {
+// Product data - in a real implementation, this would come from a database or API
+const products = {
+    930: {
         title: "Ogiva Articolata",
-        description: "Ogiva articolata per fucili e arbalete con finitura di qualità.",
-        image: "public/catalogo/SANY1906.jpg",
-        details: "Ogiva perfetta per pesca subacquea e allenamenti. Materiale resistente e design moderno.",
-        price: "Contattaci per prezzo"
+        description: "Ogiva articolata per fucili subacquei. Design ergonomico e prestazioni eccellenti.",
+        image: "public/catalogo/SANY1906.jpg"
     },
-    "7": {
+    7: {
         title: "Boa Siluro con Tasca",
-        description: "Boa siluro con tasca porta attrezzi ideale per immersioni e pesca subacquea.",
-        image: "public/catalogo/boa%20tasca.jpg",
-        details: "Sicura e maneggevole, permette di trasportare attrezzi e rimanere visibile in acqua.",
-        price: "Contattaci per prezzo"
+        description: "Boa siluro con tasca porta attrezzi, ideale per la pesca in apnea.",
+        image: "public/catalogo/boa%20tasca.jpg"
     },
-    "538": {
+    538: {
         title: "Muta Stagna Senza Cerniera",
-        description: "Muta stagna progettata per ridurre i costi e i fastidi delle cerniere.",
-        image: "public/catalogo/orizzontale.jpg",
-        details: "Realizzata in materiali di alta qualità per garantire comfort e durata.",
-        price: "Contattaci per prezzo"
+        description: "Muta stagna per ovviare ai fastidi e costi delle cerniere. Comoda e affidabile.",
+        image: "public/catalogo/orizzontale.jpg"
     },
-    "989": {
+    989: {
         title: "Scarpette da Scoglio Junior",
-        description: "Aquawalk Junior by Mares, perfette per fondali accidentati.",
-        image: "public/catalogo/scarpette-mare-junior-mares.jpg",
-        details: "Offrono protezione e stabilità su rocce e superfici scivolose.",
-        price: "Contattaci per prezzo"
+        description: "Aquawalk Junior by Mares, adatta fondali accidentati. Perfetta per i giovani sub.",
+        image: "public/catalogo/scarpette-mare-junior-mares.jpg"
     },
-    "131": {
+    131: {
         title: "Termogiacca",
-        description: "Termogiacca per protezione e comfort durante le immersioni.",
-        image: "public/catalogo/termogiacca.jpg",
-        details: "Chiedere disponibilità di colore e taglia.",
-        price: "Contattaci per prezzo"
+        description: "Chiedere disponibilità di colore e taglia. Mantenimento del calore ottimale.",
+        image: "public/catalogo/termogiacca.jpg"
     },
-    "540": {
+    540: {
         title: "Bermuda Nero Standard 3,5 mm",
-        description: "Sopramuta foderato esterno e spaccato interno da 3,5 mm.",
-        image: "public/catalogo/BERMUDA%20A%20TAGLIA.jpg",
-        details: "Comfort e isolamento termico per l'acqua fredda.",
-        price: "Contattaci per prezzo"
+        description: "Sopramuta foderato esterno e spaccato interno da 3,5 mm. Resistente e confortevole.",
+        image: "public/catalogo/BERMUDA%20A%20TAGLIA.jpg"
     },
-    "978": {
+    978: {
         title: "Pinne Anfibie",
-        description: "Pinne ideali per camminare in sicurezza prima e dopo l'immersione.",
-        image: "public/catalogo/images%201_1.jpg",
-        details: "Permettono di muoversi con stabilità anche su superfici scivolose.",
-        price: "Contattaci per prezzo"
+        description: "Pinne per camminare in sicurezza prima e dopo l'immersione. Versatile e pratica.",
+        image: "public/catalogo/images%201_1.jpg"
     },
-    "622": {
+    622: {
         title: "Staffa Roll Completa",
-        description: "Staffa roll reversibile destra/sinistra e ribaltabile.",
-        image: "public/catalogo/SANY0049.jpg",
-        details: "Prodotto italiano con montaggio facile e robusto.",
-        price: "Contattaci per prezzo"
+        description: "Prodotto italiano, reversibile destra/sinistra e ribaltabile. Alta qualità Made in Italy.",
+        image: "public/catalogo/SANY0049.jpg"
     },
-    "542": {
+    542: {
         title: "Testata Sottovuoto Alleggerita 11",
-        description: "Testata sottovuoto alleggerita in stile italiano.",
-        image: "public/catalogo/SANY2399.jpg",
-        details: "Guarnizione polivalente e peso ottimizzato per l'uso subacqueo.",
-        price: "Contattaci per prezzo"
+        description: "Made in Italy, con guarnizione polivalente. Leggera e performante.",
+        image: "public/catalogo/SANY2399.jpg"
     },
-    "6": {
+    6: {
         title: "Plancetta",
-        description: "Plancetta multiuso per il supporto in acqua.",
-        image: "public/catalogo/plancetta.jpg",
-        details: "Concepita per fungere da mezzo nautico di appoggio.",
-        price: "Contattaci per prezzo"
-    },
-    "1001": {
-        title: "Predathor Vuoto",
-        description: "Testata vuoto con serbatoio cilindrico in alluminio.",
-        image: "public/catalogo/predathor.jpg",
-        details: "Perfetta per chi cerca prestazioni da pesca subacquea professionale.",
-        price: "Contattaci per prezzo"
-    },
-    "914": {
-        title: "Corpetto/Sottomuta Liscio / Spaccato",
-        description: "Liscio/spaccato 2,5 mm con strato di protezione aggiuntivo.",
-        image: "public/catalogo/corpetto.jpg",
-        details: "Design comodo per utilizzo sotto la muta.",
-        price: "Contattaci per prezzo"
-    },
-    "796": {
-        title: "Pinne Tecniche Regolabili",
-        description: "Scarpette in acciaio inox con cinturini regolabili.",
-        image: "public/catalogo/SANY2744.jpg",
-        details: "Regolazione semplice e sicurezza durante l'uso.",
-        price: "Contattaci per prezzo"
-    },
-    "653": {
-        title: "Staffa Avant Call-Fish",
-        description: "Staffa telecamera + richiamo call-fish in un unico prodotto.",
-        image: "public/catalogo/SANY0053.jpg",
-        details: "Progettata per impieghi subacquei avanzati.",
-        price: "Contattaci per prezzo"
+        description: "Concepita per fungere da mezzo nautico di appoggio. Stabile e affidabile.",
+        image: "public/catalogo/plancetta.jpg"
     }
 };
 
-function renderProduct(id) {
-    var product = products[id];
-    var errorBlock = document.getElementById('productError');
-    var detailCard = document.querySelector('.product-detail-card');
+// Get product ID from URL
+function getProductId() {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get('id');
+}
 
-    if (!product) {
-        detailCard.style.display = 'none';
-        errorBlock.style.display = 'block';
-        return;
+// Load product data
+function loadProduct() {
+    const productId = getProductId();
+    const product = products[productId];
+
+    if (product) {
+        document.getElementById('product-title').textContent = product.title;
+        document.getElementById('product-description').textContent = product.description;
+        document.getElementById('product-image').src = product.image;
+        document.getElementById('product-image').alt = product.title;
+        document.title = product.title + ' - Neos Sub';
+    } else {
+        document.getElementById('product-title').textContent = 'Prodotto non trovato';
+        document.getElementById('product-description').textContent = 'Il prodotto richiesto non è disponibile.';
+        document.getElementById('product-image').src = 'img_home/logo_neos.png';
+        document.getElementById('product-image').alt = 'Neos Sub Logo';
     }
-
-    document.getElementById('productTitle').textContent = product.title;
-    document.getElementById('productDescription').textContent = product.description;
-    document.getElementById('productPrice').textContent = product.price;
-    document.getElementById('productExtra').textContent = product.details;
-    var img = document.getElementById('productImage');
-    img.src = product.image;
-    img.alt = product.title;
-    errorBlock.style.display = 'none';
-    detailCard.style.display = 'flex';
 }
 
-var productId = getQueryParam('id');
-if (productId) {
-    renderProduct(productId);
-} else {
-    document.getElementById('productError').style.display = 'block';
-    document.querySelector('.product-detail-card').style.display = 'none';
-}
+// Initialize when page loads
+$(document).ready(function() {
+    loadProduct();
+});
 </script>
+
+<script src="neos-sub.js"></script>
 
 </body>
 </html>
