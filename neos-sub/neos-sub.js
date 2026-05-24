@@ -52,7 +52,8 @@ $(document).ready(function () {
 
         if (linkPath === currentPath && linkUrl.search === currentUrl.search) {
             $(this).addClass('active');
-        } else if (linkPath === '/index.asp' && currentPath === '/') {
+        } else if ((linkPath === '/index.asp' || linkPath === '/index.html') &&
+                   (currentPath === '/' || currentPath === '/index.asp' || currentPath === '/index.html')) {
             $(this).addClass('active');
         }
     });
@@ -97,6 +98,73 @@ $(document).ready(function () {
 
     setupMobileBehavior();
     $(window).on('resize.neosMobile', setupMobileBehavior);
+
+    /* === PAGINE DINAMICHE === */
+    function renderCatalog() {
+        if (!window.DB || !Array.isArray(DB.reparti) || !$catalogList.length) return;
+
+        var parents = DB.reparti.filter(function (item) {
+            return item.id_padre === 0;
+        });
+
+        parents.forEach(function (parent) {
+            var children = DB.reparti.filter(function (item) {
+                return item.id_padre === parent.id;
+            });
+
+            if (children.length) {
+                var $submenu = $('<ul class="submenu"></ul>');
+                children.forEach(function (child) {
+                    $submenu.append('<li><a href="pagina.html?pg=' + child.id + '">' + child.reparto + '</a></li>');
+                });
+
+                var $item = $('<li class="has-submenu"></li>');
+                $item.append('<a href="#">' + parent.reparto + ' <span class="arrow">▸</span></a>');
+                $item.append($submenu);
+                $catalogList.append($item);
+            } else {
+                $catalogList.append('<li><a href="pagina.html?pg=' + parent.id + '">' + parent.reparto + '</a></li>');
+            }
+        });
+    }
+
+    function renderNews() {
+        if (!window.DB || !Array.isArray(DB.news)) return;
+        var $news = $('#newsList');
+        if (!$news.length) return;
+
+        DB.news.forEach(function (item) {
+            $news.append(
+                '<article class="news-item">' +
+                '<h3>' + item.titolo + '</h3>' +
+                '</article>'
+            );
+        });
+    }
+
+    function renderFeaturedProducts() {
+        if (!window.DB || !Array.isArray(DB.prodotti)) return;
+        var $grid = $('#productsGrid');
+        if (!$grid.length) return;
+
+        DB.prodotti.filter(function (item) {
+            return item.vetrina === 1 && item.attivo === 1;
+        }).forEach(function (item) {
+            $grid.append(
+                '<article class="product-card">' +
+                '<a href="prodotto.html?id=' + item.id + '">' +
+                '<img src="public/catalogo/' + item.foto + '" alt="' + item.nome + '">' +
+                '<h3>' + item.nome + '</h3>' +
+                '<p>' + item.descr + '</p>' +
+                '</a>' +
+                '</article>'
+            );
+        });
+    }
+
+    renderCatalog();
+    renderNews();
+    renderFeaturedProducts();
 
     /* === FANCYBOX === */
     if (typeof $.fn.fancybox === 'function') {
