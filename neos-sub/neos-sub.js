@@ -30,18 +30,37 @@ $(document).ready(function () {
     });
 
     $(document).on('click', function (e) {
-        if ($ham.length && !$ham[0].contains(e.target) && !$nav[0].contains(e.target)) {
+        if ($ham.length && $nav.length && !$ham[0].contains(e.target) && !$nav[0].contains(e.target)) {
             $ham.removeClass('open');
             $nav.removeClass('open');
         }
     });
 
     /* === ACTIVE LINK === */
-    var path = window.location.pathname + window.location.search;
+    var currentUrl = new URL(window.location.href, window.location.origin);
+
+    function normalizePath(path) {
+        var normalized = (path || '/').replace(/\/+$/, '');
+        return normalized === '' ? '/' : normalized;
+    }
+
     $('.nav-list a').each(function () {
-        if ($(this).attr('href') === path) {
+        var href = $(this).attr('href') || '';
+        var linkUrl = new URL(href, window.location.origin);
+        var linkPath = normalizePath(linkUrl.pathname);
+        var currentPath = normalizePath(currentUrl.pathname);
+
+        if (linkPath === currentPath && linkUrl.search === currentUrl.search) {
+            $(this).addClass('active');
+        } else if (linkPath === '/index.asp' && currentPath === '/') {
             $(this).addClass('active');
         }
+    });
+
+    // Chiudi il menu mobile quando si seleziona una voce
+    $nav.find('a').on('click', function () {
+        $ham.removeClass('open');
+        $nav.removeClass('open');
     });
 
     /* === SUBMENU TOUCH-FRIENDLY (accordion su mobile) === */

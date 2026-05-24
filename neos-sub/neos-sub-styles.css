@@ -4,8 +4,7 @@
  */
 
 /* ============================================================
-   VARIABILI & RESET
-   ============================================================ */
+   VARIABILI & RESET*/
 :root {
     --bg:           #0a0a0a;
     --bg-2:         #111118;
@@ -53,17 +52,13 @@ a:hover   { color: var(--orange-h); text-decoration: none; }
 img { display: block; max-width: 100%; height: auto; }
 ul  { list-style: none; }
 
-/* ============================================================
-   SCROLLBAR
-   ============================================================ */
+/* SCROLLBAR */
 ::-webkit-scrollbar       { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--bg-4); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
 
-/* ============================================================
-   UTILITY BAR
-   ============================================================ */
+/* UTILITY BAR */
 .utility-bar {
     background: #000;
     border-bottom: 1px solid var(--border);
@@ -113,10 +108,17 @@ ul  { list-style: none; }
     padding: 0;
 }
 
-#google_translate_element * { visibility: hidden; }
+#google_translate_element > * {
+    visibility: hidden;
+}
+
+#google_translate_element select,
+#google_translate_element .goog-te-combo,
+#google_translate_element > div {
+    visibility: visible;
+}
 
 #google_translate_element select {
-    visibility: visible;
     background: var(--bg-3);
     color: var(--text-2);
     border: 1px solid var(--border);
@@ -130,16 +132,14 @@ ul  { list-style: none; }
 #google_translate_element span { display: none; }
 .skiptranslate.goog-te-gadget { height: auto; }
 
-/* ============================================================
-   HEADER
-   ============================================================ */
+/* HEADER */
 .main-header {
     position: sticky;
     top: 0;
     z-index: 200;
     background: rgba(10,10,10,0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(0.75rem);
+    -webkit-backdrop-filter: blur(0.75rem);
     border-bottom: 2px solid var(--orange);
     box-shadow: var(--shadow);
 }
@@ -156,9 +156,7 @@ ul  { list-style: none; }
 .logo-link { display: block; }
 .logo-link img { height: 60px; width: auto; }
 
-/* ============================================================
-   NAVIGAZIONE PRINCIPALE
-   ============================================================ */
+/* NAVIGAZIONE PRINCIPALE */
 .main-nav {
     border-top: 1px solid var(--border);
     background: var(--bg-2);
@@ -238,9 +236,7 @@ ul  { list-style: none; }
 .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* ============================================================
-   LAYOUT PAGINA
-   ============================================================ */
+/* LAYOUT PAGINA */
 .page-wrapper {
     display: flex;
     max-width: 1300px;
@@ -249,9 +245,7 @@ ul  { list-style: none; }
     padding: 20px 20px 40px;
 }
 
-/* ============================================================
-   SIDEBAR
-   ============================================================ */
+/* SIDEBAR */
 .sidebar {
     width: 240px;
     flex-shrink: 0;
@@ -389,9 +383,7 @@ ul  { list-style: none; }
 /* Separator tra gruppi */
 .catalog-item + .catalog-item { border-top: 1px solid rgba(255,255,255,0.03); }
 
-/* ============================================================
-   MAIN CONTENT
-   ============================================================ */
+/* MAIN CONTENT */
 .main-content {
     flex: 1;
     min-width: 0;
@@ -429,9 +421,7 @@ ul  { list-style: none; }
     border: none;
 }
 
-/* ============================================================
-   TITOLI SEZIONE
-   ============================================================ */
+/* TITOLI SEZIONE */
 .section-title {
     font-size: 1.1em;
     font-weight: 800;
@@ -456,9 +446,7 @@ ul  { list-style: none; }
     flex-shrink: 0;
 }
 
-/* ============================================================
-   NEWS
-   ============================================================ */
+/* NEWS */
 .news-section {
     margin-bottom: 28px;
 }
@@ -498,9 +486,7 @@ ul  { list-style: none; }
 
 .news-item a:hover { color: var(--orange); }
 
-/* ============================================================
-   PRODOTTI IN VETRINA
-   ============================================================ */
+/* PRODOTTI IN VETRINA */
 .featured-section { margin-bottom: 40px; }
 
 .products-grid {
@@ -573,9 +559,7 @@ ul  { list-style: none; }
     flex: 1;
 }
 
-/* ============================================================
-   FOOTER
-   ============================================================ */
+/* FOOTER */
 .main-footer {
     background: #000;
     border-top: 2px solid var(--orange);
@@ -601,9 +585,7 @@ ul  { list-style: none; }
     letter-spacing: 0.5px;
 }
 
-/* ============================================================
-   POPUP
-   ============================================================ */
+/* POPUP */
 #popup-container {
     position: fixed;
     inset: 0;
@@ -612,8 +594,8 @@ ul  { list-style: none; }
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(0.375rem);
+    -webkit-backdrop-filter: blur(0.375rem);
     animation: fadeIn 0.3s ease;
 }
 
@@ -687,9 +669,7 @@ ul  { list-style: none; }
     box-shadow: 0 4px 16px rgba(255,140,0,0.2);
 }
 
-/* ============================================================
-   INPUT / FORM GENERICI
-   ============================================================ */
+/* INPUT / FORM GENERICI */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -738,9 +718,7 @@ input[type="submit"]:active, button:active, .btn:active {
     transform: translateY(0);
 }
 
-/* ============================================================
-   LEGACY CLASSI (retrocompatibilità con altre pagine)
-   ============================================================ */
+/* classi più compatibilità con le classi esistenti */
 .tit_prodotto {
     font-weight: 700;
     color: var(--orange);
@@ -791,9 +769,7 @@ input[type="submit"]:active, button:active, .btn:active {
     border-bottom: 1px solid var(--border);
 }
 
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
+/* RESPONSIVE */
 @media (max-width: 1024px) {
     .products-grid {
         grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -824,7 +800,7 @@ input[type="submit"]:active, button:active, .btn:active {
         left: 0;
         right: 0;
         background: rgba(10,10,10,0.98);
-        backdrop-filter: blur(16px);
+        backdrop-filter: blur(1rem);
         border: 1px solid var(--border);
         border-top: 2px solid var(--orange);
         border-radius: 0 0 var(--radius) var(--radius);
@@ -882,9 +858,7 @@ input[type="submit"]:active, button:active, .btn:active {
     .product-name { font-size: 0.76em; }
 }
 
-/* ============================================================
-   PRODUCT DETAIL PAGE
-   ============================================================ */
+/* PRODUCT DETAIL PAGE */
 
 .product-page {
     padding: 40px 20px;

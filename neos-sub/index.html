@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neos Sub - Shopping subacquea e Articoli per la pesca in apnea</title>
+    <meta name="description" content="Neos Sub - Arbalete Artigianali in legno e accessori - Shopping subacquea e Articoli per la pesca in apnea">
+    <meta name="keywords" content="arbalete, pesca sub, arbalete in legno, accessori, articoli, pesca, subacquea, shopping, negozio, e-commerce">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="neos-sub-styles.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+    <!-- DATABASE LOCALE (sostituisce il .mdb) -->
+    <script src="data.js"></script>
+</head>
+<body>
+
+<!-- ===== TOP UTILITY BAR ===== -->
+<div class="utility-bar">
+    <div class="utility-inner">
+        <div id="google_translate_element"></div>
+        <div class="utility-actions">
+            <a href="/carrello.asp" class="util-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                </svg>
+                <span>Carrello</span>
+            </a>
+            <a href="/personale.asp" class="util-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                <span>Login</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header" id="mainHeader">
+    <div class="header-inner">
+        <a href="/index.html" class="logo-link">
+            <img src="img_home/logo_neos.png" height="64" alt="Neos Sub - Arbalete e Accessori Subacquei">
+        </a>
+        <button class="nav-hamburger" id="navHamburger" aria-label="Apri menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+
+    <!-- ===== NAV PRINCIPALE ===== -->
+    <nav class="main-nav" aria-label="Menu principale">
+        <ul class="nav-list" id="mainNavList">
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="/pagina.html?pg=1">Chi Siamo</a></li>
+            <li><a href="/pagina.html?pg=3">Come Comprare</a></li>
+            <li><a href="/pagina.html?pg=4">Contatti</a></li>
+            <li><a href="/pagina.html?pg=5">Foto Clienti</a></li>
+            <li><a href="/pagina.html?pg=9">Modulo Misure</a></li>
+            <li><a href="/pagina.html?pg=10">Listino</a></li>
+            <li><a href="/pagina.html?pg=11">Gallery</a></li>
+            <li><a href="/pagina.html?pg=12">Condizioni Vendita</a></li>
+            <li><a href="/pagina.html?pg=14">Eventi</a></li>
+            <li><a href="/pagina.html?pg=15">Links Utili</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- ===== LAYOUT PRINCIPALE ===== -->
+<div class="page-wrapper">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="catalog-section">
+            <h2 class="tit_catalogo">Catalogo Neos</h2>
+            <form action="catalogo.html" method="get" class="search-form">
+                <input type="text" placeholder="Ricerca prodotto" name="cercap" id="cercap">
+                <input type="submit" value="Cerca">
+                <input type="hidden" name="act" value="33">
+            </form>
+
+            <!-- Categorie popolate da data.js -->
+            <nav class="catalog-nav" aria-label="Categorie prodotto">
+                <ul id="catalogList" class="catalog-list">
+                    <!-- Popolato da neos-sub.js usando DB.reparti -->
+                </ul>
+            </nav>
+        </div>
+    </aside>
+
+    <!-- CONTENUTO PRINCIPALE -->
+    <main class="main-content">
+
+        <!-- Banner -->
+        <div class="banner-container">
+            <img src="img_home/banner.jpg" alt="Neos Sub Banner">
+        </div>
+
+        <!-- Video -->
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/-4Y_6Q9t76E?autoplay=1&mute=1&loop=1&playlist=-4Y_6Q9t76E&controls=0&rel=0"
+                frameborder="0"
+                allowfullscreen
+                allow="autoplay"
+                title="Video Presentazione Neos Sub">
+            </iframe>
+        </div>
+
+        <!-- News popolate da data.js -->
+        <section class="news-section">
+            <h2 class="section-title">News ed Eventi Neos Sub</h2>
+            <div class="news-list" id="newsList">
+                <!-- Popolato da neos-sub.js usando DB.news -->
+            </div>
+        </section>
+
+        <!-- Prodotti in Vetrina popolati da data.js -->
+        <section class="featured-section">
+            <h2 class="section-title">Prodotti in Vetrina</h2>
+            <div class="products-grid" id="productsGrid">
+                <!-- Popolato da neos-sub.js usando DB.prodotti -->
+            </div>
+        </section>
+
+    </main>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="main-footer">
+    <div class="footer-inner">
+        <p>Neos Sub — Mute su Misura / Accessori in Neoprene / Articoli Subacquea</p>
+        <span class="footer-loc">Collepasso (LE)</span>
+    </div>
+</footer>
+
+<!-- ===== POPUP ===== -->
+<div id="popup-container">
+    <div id="popup-window">
+        <button type="button" class="close" id="closePopup" aria-label="Chiudi">✕</button>
+        <div class="splash-bg">
+            <h2>Orario di Apertura</h2>
+            <p>Chiamare per accertarsi che sia aperto.<br>
+               <strong>Lun–Ven:</strong> 08:00–13:00 / 15:00–19:00<br>
+               Altri giorni su appuntamento.</p>
+            <img src="public/catalogo/Immagine1.jpg" alt="Neos Sub" id="foto1">
+        </div>
+    </div>
+</div>
+
+<!-- Google Translate -->
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="neos-sub.js"></script>
+
+</body>
+</html>
