@@ -6,7 +6,7 @@
 ' ============================================================
 Dim conn, connStr
 Set conn = Server.CreateObject("ADODB.Connection")
-connStr = "Provider=SQLOLEDB;Data Source=89.46.111.16;Initial Catalog=Sql963192_2;User ID=Sql963192;Password=4m3623z120;"
+connStr = "SERVER=89.46.111.16;DATABASE=Sql963192_2;UID=Sql963192;PWD=4m3623z120;"
 conn.Open connStr
 %>
 <!DOCTYPE html>
